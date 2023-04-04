@@ -1,6 +1,6 @@
-# Semana10
+# M1S10-Diretivas-e-Decorators
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
+Código visto em aula na semana 10 do módulo 1 ministrado pela professora Rayane Cristina
 
 ## Development server
 
