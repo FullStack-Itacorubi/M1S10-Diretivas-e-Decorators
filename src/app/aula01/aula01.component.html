@@ -1,0 +1,47 @@
+<div class="container my-4">
+  <div class="row d-flex align-items-center">
+    <div class="col-12 bg-info bg-opacity-25 rounded-2 p-4">
+      ViewChild
+      <hr />
+      <div class="col-6 mb-3">
+        <label class="form-label" #labels>Nome:</label>
+        <input type="text" class="form-control" />
+      </div>
+
+      <div class="col-6 mb-3">
+        <label class="form-label" #labels>Sobrenome:</label>
+        <input type="text" class="form-control" />
+      </div>
+
+      <div class="col-12 mb-3">
+        <label class="form-label" #labels>Região:</label>
+        <select class="form-select" aria-label="Default select example">
+          <option value="sp">São Paulo</option>
+          <option value="pe">Pernambuco</option>
+          <option value="sc">Santa Catarina</option>
+          <option value="rs">Rio Grande do Sul</option>
+        </select>
+      </div>
+
+      <button class="btn btn-danger m-1" #button>Cancelar</button>
+      <button class="btn btn-primary m-1" #button>Enviar</button>
+    </div>
+    <div class="mt-3 col-12 bg-info bg-opacity-25 rounded-2 p-4">
+      Pipes
+      <hr />
+      <!-- Uso do pipe date para converter no formato desejado -->
+      <!-- Caso deseje traduzir para o idioma local vá ate o app.module e descomente as
+          linhas comentadas -->
+      <label>Pipe date:</label>
+      <br />
+      {{ data | date : "dd MMMM yyyy HH:mm" }}
+      <br />
+      <!-- Exercício aula 01 - slide 08 -->
+      <label>Pipe conversor:</label>
+      <br />
+      {{ 1000 | conversor }} <br>
+      {{ 60000 | conversor }} <br>
+      {{ 59000 | conversor }}
+    </div>
+  </div>
+</div>
