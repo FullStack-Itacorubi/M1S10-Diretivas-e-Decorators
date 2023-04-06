@@ -1,1 +1,129 @@
-<p>aula02 works!</p>
+<div class="container my-4">
+  <div class="row d-flex align-items-center">
+    <div class="col-12 bg-info bg-opacity-25 rounded-2 p-4 mb-3">
+      NgIf
+      <hr />
+
+      <!-- Exemplo 01 -->
+      <form (ngSubmit)="login()">
+        <div class="row">
+          <div class="col-6 mb-3">
+            <label class="form-label">Nome:</label>
+            <input
+              name="nome"
+              type="text"
+              class="form-control"
+              [(ngModel)]="user.name"
+            />
+            <!-- uso do ngIf com else -->
+            <div
+              *ngIf="user.name.length == 0; else mensagemErro"
+              class="alert alert-danger"
+              role="alert"
+            >
+              Digite algo no campo nome
+            </div>
+            <!-- O uso do ng-template serve principalmente para fazer ancora com uma
+              variável de template (#mensagemErro), mas ele não possui funcionalidade fora dele -->
+            <ng-template #mensagemErro>
+              <div class="alert alert-success" role="alert">Campo validado</div>
+            </ng-template>
+          </div>
+
+          <div class="col-6 mb-3">
+            <label class="form-label">Password:</label>
+            <input
+              [(ngModel)]="user.password"
+              type="password"
+              name="senha"
+              class="form-control"
+            />
+            <!-- Uso do ngIf -->
+            <div
+              *ngIf="user.password.length < 6"
+              class="alert alert-danger"
+              role="alert"
+            >
+              Favor digitar mais que 6 caracteres
+            </div>
+          </div>
+        </div>
+      </form>
+      <br />
+
+      Com ngForm
+      <hr />
+      <!-- Exemplo com uso do template driven -->
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+        <div class="row">
+          <div class="col-6 mb-3">
+            <label class="form-label">Nome:</label>
+            <input
+              type="text"
+              name="first"
+              ngModel
+              #first="ngModel"
+              minlength="3"
+              class="form-control"
+              required
+            />
+          </div>
+
+          <div class="col-6 mb-3">
+            <label class="form-label">Senha:</label>
+            <input
+              type="text"
+              class="form-control"
+              name="first"
+              ngModel
+              #first="ngModel"
+              minlength="6"
+              required
+            />
+            <div
+              *ngIf="!first.untouched && first.invalid"
+              class="alert alert-danger"
+              role="alert"
+            >
+              Digite algo no campo nome
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="col-12 bg-info bg-opacity-25 rounded-2 p-4">
+      NgFor
+      <hr />
+
+      <ul class="list-group">
+        <!-- A declaração com ngFor consiste em uma variável local (aluno) que
+        armazera interação por interação cada item da sua lista (alunos) -->
+        <li class="list-group-item" *ngFor="let aluno of alunos">
+          {{ aluno }}
+        </li>
+      </ul>
+      <hr />
+
+      <div class="row row-cols-4 g-4">
+        <!-- Uso do ngFor com o index -->
+        <!-- Após a chamada do array coloque -"let [variavel] = index" para armazenar
+        em uma variavel o indice daquele item -->
+        <div class="col" *ngFor="let jogo of jogos; let i = index">
+          <div class="card" style="width: 18rem">
+            <!-- Como jogo é um objeto, para acessar cada atributo basta posicionar e
+            chamar a propriedade correspondente -->
+            <img [src]="jogo.imagem" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">{{ jogo.titulo }} - {{ i }}</h5>
+              <p class="card-text">
+                {{ jogo.descricao }}
+              </p>
+              <a class="btn btn-primary" (click)="detalhes(jogo)">Detalhes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
