@@ -60,9 +60,9 @@
             <label class="form-label">Nome:</label>
             <input
               type="text"
-              name="first"
+              name="nome"
               ngModel
-              #first="ngModel"
+              #nome="ngModel"
               minlength="3"
               class="form-control"
               required
@@ -74,18 +74,18 @@
             <input
               type="text"
               class="form-control"
-              name="first"
+              name="password"
               ngModel
-              #first="ngModel"
+              #password="ngModel"
               minlength="6"
               required
             />
             <div
-              *ngIf="!first.untouched && first.invalid"
+              *ngIf="!password.pristine && password.invalid"
               class="alert alert-danger"
               role="alert"
             >
-              Digite algo no campo nome
+              Digite algo com mais de 6 caracteres no campo Senha
             </div>
           </div>
         </div>
