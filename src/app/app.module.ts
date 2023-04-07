@@ -9,6 +9,7 @@ import { Aula02Component } from './aula02/aula02.component';
 import { Aula03Component } from './aula03/aula03.component';
 import { Aula04Component } from './aula04/aula04.component';
 import { FormsModule } from '@angular/forms';
+import { CardComponent } from './components/card/card.component';
 
 
 // import { registerLocaleData } from '@angular/common';
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     Aula01Component,
     Aula02Component,
     Aula03Component,
-    Aula04Component
+    Aula04Component,
+    CardComponent
   ],
   imports: [
     BrowserModule,

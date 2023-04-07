@@ -1,1 +1,45 @@
-<p>aula04 works!</p>
+<div class="container my-4">
+  <div class="row d-flex align-items-center">
+    <div class="col-12 bg-info rounded-2 p-4 mb-3">
+      ng-content
+      <hr />
+
+      <div class="row row-cols-4 g-4">
+        <div class="col">
+          <!-- Observe que tudo que irá para a dentro de um componente, caso não
+          tenha o ng-content la no component, isso irá se perder -->
+          <app-card>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum
+              odio assumenda modi excepturi. Aperiam magni repellendus eligendi
+              odio veritatis, quibusdam culpa unde praesentium temporibus
+              consectetur quae corrupti enim laborum! Asperiores?
+            </p>
+
+            <!-- Se os elementos html dentro do componente não se encaixarem em
+            nenhum selector ele automaticamente irá para a tag
+            <ng-content></ng-content>, como é o caso com essas duas tags abaixo -->
+            <span class="badge text-bg-primary">Primary</span>
+            <span class="badge text-bg-danger">danger</span>
+
+            <span class="badge text-bg-success button">success</span>
+          </app-card>
+        </div>
+
+        <div class="col">
+          <app-card>
+            <!-- você pode agrupar itens dentro de um container para não precisar
+            repetir a classe. -->
+            <div class="body">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              <span class="badge text-bg-success">success</span>
+              <span class="badge text-bg-danger">danger</span>
+            </div>
+
+            <a class="btn btn-primary button">Detalhes</a>
+          </app-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

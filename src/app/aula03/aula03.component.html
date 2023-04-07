@@ -1,1 +1,72 @@
-<p>aula03 works!</p>
+<div class="container my-4">
+  <div class="row d-flex align-items-center">
+    <div class="col-12 bg-info rounded-2 p-4 mb-3">
+      NgClass
+      <hr />
+      <!-- O ngClass também permite no lugar da condicao passar uma função, mas essa
+      função precisa retornar um valor booleano -->
+      <span
+        class="badge"
+        [ngClass]="{
+          'text-bg-warning': condicao == 'warning',
+          'text-bg-danger': condicao == 'danger',
+          'text-bg-dark': condicao == 'dark'
+        }"
+        >{{ condicao }}</span
+      >
+
+      <hr />
+
+      <!-- Exercício aula 03 - slide 04 -->
+      Exercício
+      <br />
+      Clique no botão para ver a interação
+      <button
+        (click)="clicou = !clicou"
+        class="card card-small"
+        [ngClass]="{ clicked: clicou }"
+      >
+        <span> + New Component</span>
+      </button>
+    </div>
+
+    <div class="col-12 bg-info rounded-2 p-4 mb-3">
+      NgStyle
+      <hr />
+      <!-- No caso do ngStyle ele não espera um valor booleano para funcionar, ele precisa de um valor que seja válido pelo CSS -->
+      <button
+        class="card"
+        [ngStyle]="{
+          backgroundColor: ativo ? 'orange' : 'grey',
+          fontSize: tamanho + 'px',
+          border: '2px solid ' + cor
+        }"
+      >
+        Enviar
+      </button>
+    </div>
+
+    <div class="col-12 bg-info rounded-2 p-4 mb-3">
+      ngSwitch
+      <hr />
+      <!-- Para a diretiva [ngSwitch] seus casos (*ngSwitchCase ou *ngSwitchDefault)
+      deverão ficar em tags internas a tag que possui a declaração do ngSwitch -->
+
+      <!-- O 'valor' será comparado caso a caso e todos os que eles forem iguais
+      (ignorando o tipo da variável) ele irá apresentar todo aquele container
+      html -->
+      Digite um valor de 1 a 4 para ver as alterações:
+      <br />
+      <input [(ngModel)]="valor" type="text" class="form-control mb-2" />
+      <ul class="list-group" [ngSwitch]="valor">
+        <li class="list-group-item" *ngSwitchCase="'1'">Opa, sou a string 1</li>
+        <li class="list-group-item" *ngSwitchCase="1">Opa, sou o número 1</li>
+        <li class="list-group-item" *ngSwitchCase="'2'">Opa, sou a string 2</li>
+        <li class="list-group-item" *ngSwitchCase="'3'">Opa, sou a string 3</li>
+        <li class="list-group-item" *ngSwitchDefault>
+          Opa, sou o valor padrão
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
